@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width"/>
+        <title>John Trump</title>
+        <link rel="stylesheet" type="text/css" href="Styling/portfolio_css.css">
+    </head>
+
+    <body class="background">
+
+        <div class="navbar">
+            <a class="active" href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#github">GitHub</a>
+            <a href="#contact">Contact</a>   
+        </div>
+
+        <br>
+        <br>
+
+        <!-- video at top of screen muted and on loop-->
+        <div id="home"> 
+            <video autoplay muted loop id="floating_web">
+                <source src="./Styling/videos/floating_web.mp4" type="video/mp4">
+                <!-- below message displays if video does not run-->
+                Your browser does not support HTML5 video.
+            </video>
+        </div> 
+
+        <!-- text displayed over top of above listed video-->
+        <div class="video_text">
+            <h1 class="white-text">John Trumps Portfolio</h1>
+            <strong>
+                <p class="center">
+                    <q>The computer programmer is a creator of universes for which he alone is the lawgiver.
+                        <br>No playwright, no stage director, no emperor, however powerful, has ever exercised such absolute authority to arrange a stage or
+                        <br>field of battle and to command such unswervingly dutiful actors or troops.
+                    </q>
+                    <br> -Joseph Weizenbaum
+                    <br>
+                    <br> My name is John Trump. Welcome to my portfolio website. Here I will tell you about my background and experience.
+                    <br>
+                    <br> Thank you for stopping by, lets chat soon!
+                </p>
+            </strong>
+        </div>
+        
+        <!-- About you section-->
+        <div class="row" id="about">
+            <!--left-column-->
+            <div class="column_2">
+                <img src="./Styling/Images/home_office.jpg" alt="home_office">
+            </div>
+            <!--right column-->
+            <div class="column_1">
+                <h1>My background and experience</h1>
+                <p>
+                    I am a software developer who loves to collaborate and code! As a father of two boys, I enjoy time with my family and traveling.
+                    <br>
+                    <br>I am a graduate of <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy</a>'s Python Developer Boot Camp, 
+                    and I am trained and experienced in the following web programming languages: Python HTML, CSS, JavaScript, SQL and more.
+                    <br>
+                    <br>I am a full-stack developer and would love to work with you on your projects. <a href="#contact">Contact</a> me below!                 
+                </p>
+            </div>
+        </div>
+        <!-- GitHub Section -->
+        <div class="row" id="github">
+            <!-- Left Column -->
+            <div class="column_1">
+                <h1>GitHub</h1>
+                <p>
+                    You can view my coding projects on my GitHub profile here:
+                    <br>
+                    <p class="center"><a href="https://github.com/JohnJTrump" target="_blank">John's GitHub</a></p>
+                </p>
+            </div>
+            <!-- Right Column -->
+            <div class="column_2">
+                <a href="https://github.com/JohnJTrump" target="_blank"><img src="Styling/Images/GitHub.png" alt="GitHub logo"></a>
+            </div>
+        </div>
+
+        <!-- Contact Me Section -->
+        <div class="row" id="contact">
+            <!--image in left contact column-->
+            <div class="column_2 column_tall">
+                <img src="./Styling/Images/colaboration.jpg" alt="colaboration">
+            </div>
+            <!-- Right Column Cotact Form -->
+            <div class="column_1 column_tall">
+                <h1>Contact</h1>
+                <form action="https://formspree.io/f/mwkwznop" method="POST">
+                    <label>Name:</label>
+                        <input type="text" placeholder="Please enter your name here">
+                    <label>Email:</label>
+                        <input type="text" id="email" name="email" placeholder="Please enter your email here">
+                    <label>Message:</label>
+                        <input type="text" id="message" name="message" placeholder="Please write your message here">
+                        <input type="submit" value="SUBMIT">
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>
+                <p class="center">&copy John Trump Inc., <a href="http://www.functionaltechdevelopment.com" target="_blank">John Trump</a></p>
+                <br>
+            </p>
+        </footer>
+    </body>
+</html>

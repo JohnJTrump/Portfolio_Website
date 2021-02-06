@@ -1,0 +1,261 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Styling for Portfolio
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+
+body {
+    margin: 0%   /* makes site display at edge of browser screen */
+}
+
+h1 {  /* this will affect all h1's */
+    text-transform: uppercase; 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center; 
+    margin-top: 3%;
+    color:firebrick;
+}
+
+h1:hover {
+    filter: grayscale(5%); /* creates a gray filter over top */
+    transform: scale(1.1); /* makes text increase in size */
+    transition: transform 1s; /* takes 1 second to be fully covered in gray */
+}
+
+.white-text {   /* Title text */
+    color: rgb(18, 102, 18);
+}
+
+p {
+    font-family: 'Courier New', Courier, monospace bold;
+    text-align: justify;
+    letter-spacing: 1px; /* slightyl expands text */
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px; 
+}
+
+p:hover {
+    transition: transform 1s;
+    transform: scale(1.01); /* slight increase in size */
+}
+
+.center { /* effects all .center elements */
+    text-align: center;
+}
+
+.center:hover { /* effects all .center elements */
+    transition: transform 2s;
+    transform: scale(1.1); /* slight increase in size */
+}
+
+a { /* links */
+    color: blue;
+}
+
+q { /* effects the quote at top of page */
+    font-style: italic;
+}
+
+img { /* all the image elements */
+    filter: grayscale(75%);  /* Removes 75% of original picture color */
+    border-radius: 8px;
+    max-width: 100%; /* forces image to stay within the width of their container */
+    height: 340px; 
+    display: block; /* makes it so images can be centered */
+    margin-left: auto;  /* combined with margin right auto, will center image */
+    margin-right: auto; 
+}
+
+img:hover {
+    filter: grayscale(5%);
+    transition: transform 1s;
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 576px) {  /* effects images on devices with screens 576px or smaller */
+    img {
+        height: 100px;
+        margin-top: 150px;
+    }
+}
+
+footer {
+    padding: 2%;
+    background-color:""; /* removed background color to show video behind text */ 
+}
+
+.navbar {
+    overflow: hidden; /* keeps everything in the container */
+    background-color: black;
+    position: fixed; /* keeps nav bar always at top of screen */
+    top: 0; /* forces nav bar to be at absolute top of browser */
+    width: 100%; /* makes nav bar span entire top of screen */
+    z-index: 1; /*makes bar top layer when scrolling */
+    -webkit-animation: moveNav 5s; /* for safari browsers */
+    animation: moveNav 5s; /* for all other browsers */
+}
+
+@keyframes moveNav { /* makes navbar slide on to screen from left */
+    from {left: -100vw;} /* navbar starts off screen from left */
+    to {left: 0vw} /* moves the navbar in to place */
+}
+
+.navbar a {  /* effects the links */
+    float: left;
+    display: block; /* keeps text on the same line instead of moving to new line */
+    color: rgb(18, 102, 18);
+    padding: 14px 16px; /* around text */
+    text-decoration: none; /* removes underlines on text in navbar */
+    font-family:cursive;
+    font-size: 20px;
+    position: relative; 
+    -webkit-animation: moveNavText 5.75s; /* animation for safari */
+    animation: moveNavText 5.75s; /* makes animation last for 5.75 seconds */
+}
+
+@keyframes moveNavText {
+    from {top: -100vw;}  /* sets navbar 100% above viewport */
+    to {top: 0vw;}  /* lowers navbar text on to navbar */
+}
+
+@media screen and (max-width: 576px) {  /* displays navbar equally distributed on 576px screens */
+    .navbar a{ 
+        width: 25%; /* makes links take up 1/4 of the navbar */
+        font-size: 12px;
+    }
+}
+
+.navbar a:hover {
+    background-color: rgb(5, 53, 11); 
+    color: white; /* text changes to this color */
+    font-weight: bold;
+}
+
+.navbar a.active {
+    background-color: rgb(49, 47, 49); /* targets just the home box on the navbar */
+}
+
+#floating_web {  /* effecting the video  */
+    position: fixed;
+    right: 0; /* forces video all the way to edge of screen */
+    left: -75%;
+    top: -150%;
+    bottom: 50%; 
+    min-width: 100%; /* forces video to display across full with of screen */
+    z-index: -1; /* pushes video to the back of page, all other elements will lay on top of video */
+}
+
+
+@media screen and (max-width: 576px) { /* makes video not display on screens 576px or less */
+    #floating_web {
+        display: none;
+    }
+}
+
+.video_text {
+    background: rgba(0, 0, 0, 0.5);  /* makes semi transparent surface for text to sit on */
+    color: white; /* text color */
+    width: 100%; /* text fills the width of the container */
+    padding: 20px;  /* adds padding around text so background goes just beyond text */
+    position: relative; /* makes text relative to its normal position allowing for animation */
+    -webkit-animation: moveVideoText 5.75s;
+    animation: moveVideoText 5.75s;
+}
+
+@keyframes moveVideoText {  /* on page load, this lowers text down from top of page */
+    from {top: -100vw;}
+    to {top: 0vw}
+}
+
+
+
+/* ~~~~~~~~~ column styling below ~~~~~~~~~~ */
+
+* {  /* asterisk is a universal selctor eddecting all elements on page */
+    box-sizing: border-box; /* makes a box with a border which will hold the text */
+}
+
+.column_1 {
+    float: left;
+    width: 50%; /* makes the column half of the page */
+    padding: 10px;
+    padding-top: 3%; /* space between top of column and headings */
+    height: 400px; /* height of the column *******may need to adjust if text does not fit*********  */
+    background-color: rgb(31, 34, 31);
+}
+
+@media screen and (max-width: 576px) {
+    .column_1 {
+        overflow: auto;
+    }
+}
+
+.column_2 {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    padding-top: 1.9%;
+    height: 400px;
+    background-color: rgb(7, 24, 13);
+}
+
+.column_tall {
+    padding-top: 3.5%;
+    height: 450px;
+}
+
+.row:after { /* inserts something after the element .row */
+    content: ""; /* leave this blank so footer displays properly. if not here, footer will cover the columns */
+    display: table; /* tells the browser to display content at a table */
+    clear: both; /* clears any elements from floating on the left or right */
+}
+
+/*~~~~~~~~ End Column Styling ~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~Contact Form below~~~~~~~~~~~~~~~~~~~*/
+
+input[type=text] { /* this will effect all text in the contact form */
+    width: 100%;  /* makes each box cover the entire width of the container */
+    padding: 12px; /* padding inside text box */
+    border: 1px solid red; /* border and color */
+    border-radius: 4px;
+    box-sizing: border-box; /* creates a box around the contact form input box */
+    margin-top: 6px; /* top of text box */
+    margin-bottom: 16px; /* bottom of text box */
+    resize: vertical; /* allows user to rezise text boxes vertically */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type=text]:hover {
+    box-shadow: 0 0 5px #00004d inset; /* creates blue shadow in text box when user hovers over */
+}
+
+input[type=submit] {
+    background-color:rgb(49, 47, 49); 
+    color: white;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block; /* in combination with margins below, allows submit button to be centered */
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type=submit]:hover {
+    background-color: springgreen; /* changes background color when hovered */
+    color:rgba(0, 0, 0, 0.5);
+    transform: scale(1.5); /* makes button increase in size */
+    transition: transform 1.5s; /* amount of time to transform */
+}
+
+form {
+    border-radius: 5px;
+    background-color: silver;
+    padding: 10px; /* padding for the contact form */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/*~~~~END of Contact form~~~~~~~*/
