@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width"/>
         <title>John Trump</title>
         <link rel="stylesheet" type="text/css" href="Styling/portfolio_css.css">
+        <script src="JS/CHANGE ME.js" defer></script> 
     </head>
 
     <body class="background">
 
         <div class="navbar">
             <a class="active" href="#home">Home</a>
+            <a href="#Slideshow">Slideshow</a> 
             <a href="#about">About</a>
             <a href="#github">GitHub</a>
-            <a href="#contact">Contact</a>   
+            <!-- <a href="#contact">Contact</a> --> <!-- Removed to add pop-up form-->
+            <a onclick="openForm()" ondblclick="closeForm()">Contact</a>   <!-- This will open Pop-Up contact form-->
         </div>
 
-        <br>
-        <br>
+        
 
-        <!-- video at top of screen muted and on loop-->
+        <!-- VIDEO -- at top of screen muted and on loop-->
         <div id="home"> 
+            <br>  <!--breaks here to add space between navbar and fist heading-->
+            <br>
             <video autoplay muted loop id="floating_web">
                 <source src="./Styling/videos/floating_web.mp4" type="video/mp4">
                 <!-- below message displays if video does not run-->
@@ -30,27 +34,91 @@
 
         <!-- text displayed over top of above listed video-->
         <div class="video_text">
-            <h1 class="white-text">John Trumps Portfolio</h1>
-            <strong>
-                <p class="center">
-                    <q>The computer programmer is a creator of universes for which he alone is the lawgiver.
-                        <br>No playwright, no stage director, no emperor, however powerful, has ever exercised such absolute authority to arrange a stage or
-                        <br>field of battle and to command such unswervingly dutiful actors or troops.
-                    </q>
-                    <br> -Joseph Weizenbaum
-                    <br>
-                    <br> My name is John Trump. Welcome to my portfolio website. Here I will tell you about my background and experience.
-                    <br>
-                    <br> Thank you for stopping by, lets chat soon!
-                </p>
-            </strong>
+            <h1 style="color: white;">John Trumps Portfolio</h1>
+                <p>
+                  <strong>
+                      <center>
+                            <q>The computer programmer is a creator of universes for which he alone is the lawgiver.
+                                <br>No playwright, no stage director, no emperor, however powerful, has ever exercised such absolute authority to arrange a stage or
+                                <br>field of battle and to command such unswervingly dutiful actors or troops.
+                            </q>
+                            <br> -Joseph Weizenbaum
+                            <br>
+                            <br> My name is John Trump. Welcome to my portfolio website. Here I will tell you about my background and experience.
+                            <br>
+                            <br> Thank you for stopping by, lets chat soon!
+                      </center>
+                   </strong>
+                </p>                       
         </div>
         
+        <!-- Slideshow -->
+        <div id="Slideshow">
+            <div id="Slideshow_Background">
+                <div id="Slideshow_Container">
+
+                    <div class="mySlides fade">
+                        <div class="Slide_Number">1 / 6</div>
+                        <img class="Slide_Show_Images" src="./Styling/Images/Head Shot.jpg" style="width: 100%">
+                            <div class= "text">I'm available to assist you on your project!</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="Slide_Number">2 / 6</div>
+                        <img class="Slide_Show_Images" src="./Styling/Images/HTML_CSS_and_JavaScript.jpeg" style="width: 100%">
+                            <div class= "text">I am a full-stack software developer,<br> trained in:<br>HTML, CSS, JavaScript</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="Slide_Number">3 / 6</div>
+                        <img class="Slide_Show_Images" src="./Styling/Images/Python.png" style="width: 100%">
+                            <div class= "text">the popular programming language Python,</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="Slide_Number">4 / 6</div>
+                        <img class="Slide_Show_Images" src="./Styling/Images/C_Sharp_and_Dot_NET.png" style="width: 100%">
+                            <div class= "text">C#, .NET Framework, ASP.NET, MVC,</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="Slide_Number">5 / 6</div>
+                        <img class="Slide_Show_Images" src="./Styling/Images/SQL_and_Database.jpg" style="width: 100%">
+                            <div class= "text">back end development, databases and SQL.</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="Slide_Number">6 / 6</div>
+                        <img class="Slide_Show_Images" src="./Styling/Images/colaboration_1.jpg" style="width: 100%">
+                            <div class= "text">
+                                <a onclick="openForm()" href="#Contact" style="color: white;">Contact me now so we can collaborate on something awesome!</a> 
+                            </div>
+                    </div>
+
+                        <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+
+                </div>
+            <br>
+
+                <div style="text-align:center">
+                
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+
+                </div>
+            </div>
+        </div>
+
         <!-- About you section-->
         <div class="row" id="about">
             <!--left-column-->
             <div class="column_2">
-                <img src="./Styling/Images/home_office.jpg" alt="home_office">
+                <img src="./Styling/Images/home_office_1.jpg" alt="home_office">
             </div>
             <!--right column-->
             <div class="column_1">
@@ -82,14 +150,17 @@
             </div>
         </div>
 
+        <!-------------------------------------------------------------------------------------------------------
+                    Replaced with a pop up contact form                                                            
+        -------------------------------------------------------------------------------------------------------->
         <!-- Contact Me Section -->
-        <div class="row" id="contact">
-            <!--image in left contact column-->
-            <div class="column_2 column_tall">
+     <!--  <div class="row" id="contact"> -->
+            <!--image in left contact column--> 
+      <!--      <div class="column_2 column_tall">
                 <img src="./Styling/Images/colaboration.jpg" alt="colaboration">
-            </div>
+            </div> -->
             <!-- Right Column Cotact Form -->
-            <div class="column_1 column_tall">
+      <!--      <div class="column_1 column_tall">
                 <h1>Contact</h1>
                 <form action="https://formspree.io/f/mwkwznop" method="POST">
                     <label>Name:</label>
@@ -101,14 +172,43 @@
                         <input type="submit" value="SUBMIT">
                 </form>
             </div>
-        </div>
+        </div>  -->
+
+        
+        <!---------------------------------------------------------------------------------------------------
+                        POP-UP Contact Form                                                                 
+        ---------------------------------------------------------------------------------------------------->
+
+        <!--Contact Section-->
+            <div id="Contact">
+                <button onclick="openForm()" class="Pop_Up_Button"> CONTACT </button>
+                    <div class="form-popup" id="myForm">
+                        <form action="https://formspree.io/f/mwkwznop" method="POST" class="form-container">
+                        <h1>Contact</h1>
+                            <label for="name"><b>Name</b></label>
+                                <input type="text" placeholder="Type your name here" name="name" required>
+                            <label for="phone"><b>Phone</b></label>
+                                <input type="text" placeholder="Enter your phone number here" name="phone">
+                            <label for="email"><b>Email</b></label>
+                                <input type="text" placeholder="Type your email address here" name="email" required>
+                            <label for="message"><b>Message</b></label>
+                                <input type="text" placeholder="Type your message here" name="message">
+                        
+                        <button type="submit" class="btn">SUBMIT</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+                        </form>
+                    </div>
+            </div>
 
         <!-- Footer -->
         <footer>
             <p>
-                <p class="center">&copy John Trump Inc., <a href="http://www.functionaltechdevelopment.com" target="_blank">John Trump</a></p>
+                <p class="center">&copy John Trump Inc. <a href="http://www.functionaltechdevelopment.com" target="_blank"></a></p>
                 <br>
             </p>
         </footer>
+
+        <script src="Js/Portfolio_JavaScript.js"></script>
+
     </body>
 </html>
