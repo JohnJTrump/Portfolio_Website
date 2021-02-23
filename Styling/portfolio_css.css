@@ -2,74 +2,112 @@
         Styling for Portfolio
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+html {
+    scroll-behavior: smooth; /* makes movement through page smooth when navbar links are clicked. */
+}
 
 body {
-    margin: 0%   /* makes site display at edge of browser screen */
+    margin: 0%;   /* makes site display at edge of browser screen */
+      opacity: 1; /* effects the page load fade in */
+      transition: 3s opacity; /* effects the page load fade in */
+    letter-spacing: 2.vw; /* makes lettering change with different screen sizes */
+    font-size: Avant Garde, Helvetica;
+    font-size: 1.5vw; /* makes lettering change with different screen sizes */
+}
+
+body.fade-out { /* contributes to page fade in on load */
+    opacity: .1; /* sets for start of page load. */
+    transition: none;
 }
 
 h1 {  /* this will affect all h1's */
     text-transform: uppercase; 
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', Optima;
     text-align: center; 
     margin-top: 3%;
-    color:firebrick;
+    color: g;
 }
 
 h1:hover {
-    filter: grayscale(5%); /* creates a gray filter over top */
-    transform: scale(1.1); /* makes text increase in size */
-    transition: transform 1s; /* takes 1 second to be fully covered in gray */
+    color: whitesmoke;
+    font-weight: bold; /* removes bold from text when hovered */
+    /* ((removed filter, transform and transition on update 2 ))*/
+    /* filter: grayscale(5%); */ /* creates a gray filter over top */
+    transform: scale(1.1);  /* makes text increase in size */
+    transition: transform 1s;  /* takes 1 second to be fully covered in gray */
 }
 
-.white-text {   /* Title text */
-    color: rgb(18, 102, 18);
+center {   /* Center elements */
+   font-family: Perpetua, Rockwell Extra Bold;
+   text-align: center;
+   letter-spacing: 1.vw;
+   font-size: 1.5vw;
+   padding-left: 5vw;
+   padding-right: 5vw;
+}
+
+center:hover {
+    transition: transform 2s;
+    transform: scale(1.1);
 }
 
 p {
     font-family: 'Courier New', Courier, monospace bold;
     text-align: justify;
-    letter-spacing: 1px; /* slightyl expands text */
-    font-size: 20px;
-    padding-left: 20px;
-    padding-right: 20px; 
+    letter-spacing: .1vw; /* slightyl expands text (was 1px) */
+    font-size: 1.5vw; /* was 20px */
+    padding-left: 1vw; /* was 20px */
+    padding-right: 1vw; /* was 20px */
+    color: gray;
 }
 
 p:hover {
+    color: white;
     transition: transform 1s;
-    transform: scale(1.01); /* slight increase in size */
+    transform: scale(1.005); /* slight increase in size */
 }
 
-.center { /* effects all .center elements */
+.center { /* effects all .center elements */ /* may need to alter html to effect additional "center" objects added on update 2 */
+    font-family: Perpetua, Rockwell Extra Bold;
     text-align: center;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+   
 }
 
-.center:hover { /* effects all .center elements */
+center:hover { /* effects all .center elements */
+    color: white;
     transition: transform 2s;
-    transform: scale(1.1); /* slight increase in size */
+    transform: scale(1.1); /* ((WAS 1.1))slight increase in size */
+     overflow: hidden; /* TRYING TO GET THE CONTAINER NOT TO EXPAND ON HOVER */
 }
 
 a { /* links */
-    color: blue;
+    color: blue; /* ensures all links are blue */
 }
 
 q { /* effects the quote at top of page */
     font-style: italic;
+    font-weight: bold;
 }
 
 img { /* all the image elements */
     filter: grayscale(75%);  /* Removes 75% of original picture color */
     border-radius: 8px;
     max-width: 100%; /* forces image to stay within the width of their container */
-    height: 340px; 
+    height: 100%; /* was 340px */
     display: block; /* makes it so images can be centered */
-    margin-left: auto;  /* combined with margin right auto, will center image */
-    margin-right: auto; 
+    margin: auto auto auto auto;
+    /* margin-left: auto;  /* combined with margin right auto, will center image */
+    /* margin-right: auto; */ /* both margin left and margin right replaced on update 2 */
 }
 
 img:hover {
-    filter: grayscale(5%);
+    filter: grayscale(5%); /* brings back most of img color when hovered */
     transition: transform 1s;
-    transform: scale(1.1);
+
 }
 
 @media screen and (max-width: 576px) {  /* effects images on devices with screens 576px or smaller */
@@ -91,8 +129,9 @@ footer {
     top: 0; /* forces nav bar to be at absolute top of browser */
     width: 100%; /* makes nav bar span entire top of screen */
     z-index: 1; /*makes bar top layer when scrolling */
+      position: fixed;
     -webkit-animation: moveNav 5s; /* for safari browsers */
-    animation: moveNav 5s; /* for all other browsers */
+      animation: moveNav 5s; /* for all other browsers */
 }
 
 @keyframes moveNav { /* makes navbar slide on to screen from left */
@@ -103,15 +142,108 @@ footer {
 .navbar a {  /* effects the links */
     float: left;
     display: block; /* keeps text on the same line instead of moving to new line */
-    color: rgb(18, 102, 18);
-    padding: 14px 16px; /* around text */
+    color: rgb(70, 182, 70);
+    padding: .75vw 1vw; /* around text (was: 14px 16px) changed to a format that will change with screen size*/
     text-decoration: none; /* removes underlines on text in navbar */
     font-family:cursive;
-    font-size: 20px;
-    position: relative; 
+    font-size: 20px; /* was 20px -- changed to a format that will change with screen size*/
+      position: relative; 
     -webkit-animation: moveNavText 5.75s; /* animation for safari */
     animation: moveNavText 5.75s; /* makes animation last for 5.75 seconds */
+    letter-spacing: .2vw;
 }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Pop Up Ccontact Form
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+@keyframes movePopup { /* makes contact from button slide in from right on page load */
+    from {right: -40vw;}
+    to {bottom: 1.75vw;}
+}
+
+.Pop_Up_Button { /*Button used to open the contact form - fixed at the bottom of the page */
+    bottom: 1.75vw;
+    right: 1.75vw;
+    width: 25vw;
+    background-color: white;
+    color: black;
+    border: solid;
+    cursor: pointer;
+    position: fixed;
+    -webkit-animation: movePopup 5s;
+    animation: movePopup 5s;
+}
+
+.form-popup { /* The popup form - hidden by default */
+    border: 3px solid #f0f1f0;
+    z-index: 8;
+    display: none;
+    position: fixed;
+    bottom: 6px;
+    right: 6px;
+}
+
+.form-container { /* form styling */
+    max-width: 49vw;
+    padding: 9px;
+    background-color: white;
+}
+
+.form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: .93vw;
+    margin: .6vw 0 .6vw 0;
+    border: none;
+    background: gainsboro;
+    font-family: Helvetica, Avant Garde;
+    font-size: 1vw;
+}
+
+.form-container .btn { /* submit button */
+    background-color: white;
+    color: black;
+    border-color: black;
+    margin-bottom: 1vh;
+}
+
+.form-container .cancel { /* close button */
+    background-color: black;
+    color: white;
+    border-color: gray;
+}
+
+button { /* button styling */
+    font-family: "Trebuchet MS", Optima;
+    letter-spacing: .3vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    padding: 1.5vw 1.5vw;
+    border-style: solid;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+}
+
+button:hover, .form-container .btn:hover { /* hover effect for buttons */
+    color: white;
+    background-color: black;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    border-style: solid;
+    border-color: silver;
+}
+
+.form-container .cancel:hover {
+    color: white;
+    background-color: darkred;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    border-style: solid;
+    border-color: black;
+}
+
+
 
 @keyframes moveNavText {
     from {top: -100vw;}  /* sets navbar 100% above viewport */
@@ -129,6 +261,9 @@ footer {
     background-color: rgb(5, 53, 11); 
     color: white; /* text changes to this color */
     font-weight: bold;
+    cursor: pointer;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
 }
 
 .navbar a.active {
@@ -154,12 +289,15 @@ footer {
 
 .video_text {
     background: rgba(0, 0, 0, 0.5);  /* makes semi transparent surface for text to sit on */
-    color: white; /* text color */
-    width: 100%; /* text fills the width of the container */
-    padding: 20px;  /* adds padding around text so background goes just beyond text */
-    position: relative; /* makes text relative to its normal position allowing for animation */
-    -webkit-animation: moveVideoText 5.75s;
-    animation: moveVideoText 5.75s;
+    color: gray; /* text color */
+    width: 100%; /* ((WAS 100%))text fills the width of the container */
+    padding-top: 1vh;  /* adds padding around text so background goes just beyond text */
+    padding-bottom: 40vh;
+    margin-top: 0; /* WAS 23% */
+      position: relative; /* makes text relative to its normal position allowing for animation */
+    margin-bottom: 23%;/* was 23% */
+    -webkit-animation: moveNav 4s;
+      animation: moveVideoText 4s;
 }
 
 @keyframes moveVideoText {  /* on page load, this lowers text down from top of page */
@@ -167,20 +305,136 @@ footer {
     to {top: 0vw}
 }
 
+/*-------------------------Slide Show------------------------*/
+#Slideshow {
+    margin-top: 0;
+}
+
+#Slideshow_Background {
+    background: rgba(255,255,255, 0.35); /* creates a slightly transparent white background that placed over the video */
+}
+
+.mySlides {
+    display: none;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+#Slideshow_Container {
+    width: 39.5vw;
+    height: auto;
+    padding-top: 4%;
+    position: relative;
+    margin: auto;
+}
+
+.Slide_Show_Images {
+    vertical-align: middle;
+    height: auto;
+    box-shadow: 0px 5px 10px 12px rgba(0,0,0, .75);
+    width: auto;
+}
+
+/* next and previous button */
+.Previous, .Next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 2vw;
+    margin-top: -0vw;
+    color: darkgray;
+    font-weight: bold;
+    font-size: 1.5vw;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    transition: 0.6s ease;
+}
+
+.Next { /* position right hand next button */
+    right: 0;
+    border-radius: 3px 0 0 3px; 
+}
+
+.Previous:hover, .Next:hover {
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+}
+
+.text { /* slide show text */
+    color: white;
+    padding: 1vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-family: Perpetua, Rockwell Extra Bold;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    background-color: rgba(0,0,0,0.75);
+    font-weight: bold;
+    border-radius: 7px 7px 7px 7px;
+}
+
+.Slide_Number { /* these have been set to display: none; which hides them */
+    color: white;
+    position: absolute;
+    top: 0;
+    font-family: Perpetua, Rockwell Extra Bold;
+    letter-spacing: .1vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    display: none;
+}
+
+.dot {  /*dots under slide show */
+    cursor: pointer;
+    height: 1vw;
+    width: 1vw;
+    margin: .25vw;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.active, .dot:hover { /* hover effect for slideshow dots */
+    background-color: black;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    -o-animation-duration: 1.5s;
+}
+
+
+
 
 
 /* ~~~~~~~~~ column styling below ~~~~~~~~~~ */
 
-* {  /* asterisk is a universal selctor eddecting all elements on page */
+* {  /* asterisk is a universal selctor effecting all elements on page */
     box-sizing: border-box; /* makes a box with a border which will hold the text */
 }
 
 .column_1 {
     float: left;
     width: 50%; /* makes the column half of the page */
-    padding: 10px;
-    padding-top: 3%; /* space between top of column and headings */
-    height: 400px; /* height of the column *******may need to adjust if text does not fit*********  */
+    padding: 1.6%;  /* was 10px */
+    /*padding-top: 3%; */ /* (removed on second version update) space between top of column and headings */
+    height: 448px; /* height of the column *******may need to adjust if text does not fit*********  */
     background-color: rgb(31, 34, 31);
 }
 
@@ -193,9 +447,9 @@ footer {
 .column_2 {
     float: left;
     width: 50%;
-    padding: 10px;
-    padding-top: 1.9%;
-    height: 400px;
+    padding: 1.6%;  /* was 10px */
+    /* padding-top: 1.9%; */  /* Removed on second version update */
+    height: 448px; /* may need to adjust to fit content */
     background-color: rgb(7, 24, 13);
 }
 
@@ -212,7 +466,7 @@ footer {
 
 /*~~~~~~~~ End Column Styling ~~~~~~~~~~~~~~~*/
 
-/*~~~~~~~Contact Form below~~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~Contact Form below (((NOT USED ON UPDATE 2 >> POP UP CONTACT FORM ADDED << )))~~~~~~~~~~~~~~~~~~~*/
 
 input[type=text] { /* this will effect all text in the contact form */
     width: 100%;  /* makes each box cover the entire width of the container */
