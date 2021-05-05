@@ -28,6 +28,7 @@ h1 {  /* this will affect all h1's */
     color: g;
 }
 
+
 h1:hover {
     color: whitesmoke;
     font-weight: bold; /* removes bold from text when hovered */
@@ -37,19 +38,22 @@ h1:hover {
     transition: transform 1s;  /* takes 1 second to be fully covered in gray */
 }
 
-center {   /* Center elements */
-   font-family: Perpetua, Rockwell Extra Bold;
-   text-align: center;
-   letter-spacing: 1.vw;
-   font-size: 1.5vw;
-   padding-left: 5vw;
-   padding-right: 5vw;
-}
-
-center:hover {
-    transition: transform 2s;
-    transform: scale(1.1);
-}
+/*
+    center {   /* Center elements */
+/*    font-family: Perpetua, Rockwell Extra Bold;
+    text-align: center;
+    letter-spacing: 1.vw;
+    font-size: 1.5vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    }
+*/
+/*
+        center:hover {
+            transition: transform 2s;
+            transform: scale(1.1);
+        }
+*/
 
 p {
     font-family: 'Courier New', Courier, monospace bold;
@@ -58,15 +62,15 @@ p {
     font-size: 1.5vw; /* was 20px */
     padding-left: 1vw; /* was 20px */
     padding-right: 1vw; /* was 20px */
-    color: gray;
-}
-
-p:hover {
     color: white;
-    transition: transform 1s;
-    transform: scale(1.005); /* slight increase in size */
 }
-
+/*
+        p:hover {
+            color: white;
+            transition: transform 1s;
+            transform: scale(1.005); /* slight increase in size */
+/*        }
+*/
 .center { /* effects all .center elements */ /* may need to alter html to effect additional "center" objects added on update 2 */
     font-family: Perpetua, Rockwell Extra Bold;
     text-align: center;
@@ -74,15 +78,18 @@ p:hover {
     font-size: 1.5vw;
     padding-left: 5vw;
     padding-right: 5vw;
+    color: white;
    
 }
 
-center:hover { /* effects all .center elements */
-    color: white;
-    transition: transform 2s;
-    transform: scale(1.1); /* ((WAS 1.1))slight increase in size */
-     overflow: hidden; /* TRYING TO GET THE CONTAINER NOT TO EXPAND ON HOVER */
-}
+/*
+        center:hover { /* effects all .center elements */
+/*            color: white;
+            transition: transform 2s;
+            transform: scale(1.1); /* ((WAS 1.1))slight increase in size */
+/*            overflow: hidden; /* TRYING TO GET THE CONTAINER NOT TO EXPAND ON HOVER */
+/*        }
+*/
 
 a { /* links */
     color: blue; /* ensures all links are blue */
@@ -289,13 +296,13 @@ button:hover, .form-container .btn:hover { /* hover effect for buttons */
 
 .video_text {
     background: rgba(0, 0, 0, 0.5);  /* makes semi transparent surface for text to sit on */
-    color: gray; /* text color */
+    color: white; /* text color */
     width: 100%; /* ((WAS 100%))text fills the width of the container */
     padding-top: 1vh;  /* adds padding around text so background goes just beyond text */
     padding-bottom: 40vh;
     margin-top: 0; /* WAS 23% */
       position: relative; /* makes text relative to its normal position allowing for animation */
-    margin-bottom: 23%;/* was 23% */
+    /*margin-bottom: 23%;/* was 23% */
     -webkit-animation: moveNav 4s;
       animation: moveVideoText 4s;
 }
