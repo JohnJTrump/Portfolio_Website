@@ -20,11 +20,60 @@ body.fade-out { /* contributes to page fade in on load */
     transition: none;
 }
 
-h1 {  /* this will affect all h1's */
+#floating_web {  /* effecting the video  */
+    position: fixed;
+    right: 0; /* forces video all the way to edge of screen */
+    left: -75%;
+    top: -150%;
+    bottom: 50%; 
+    min-width: 100%; /* forces video to display across full with of screen */
+    z-index: -1; /* pushes video to the back of page, all other elements will lay on top of video */
+}
+
+
+@media screen and (max-width: 576px) { /* makes video not display on screens 576px or less */
+    #floating_web {
+        display: none;
+    }
+}
+
+.video_text {
+    background: rgba(0, 0, 0, 0.5);  /* makes semi transparent surface for text to sit on */
+    color: white; /* text color */
+    width: 100%; /* ((WAS 100%))text fills the width of the container */
+    padding-top: 1vh;  /* adds padding around text so background goes just beyond text */
+    padding-bottom: 50vh;
+    margin-top: 0; /* WAS 23% */
+      position: relative; /* makes text relative to its normal position allowing for animation */
+    /*margin-bottom: 5%;/* was 23% */
+    -webkit-animation: moveNav 4s;
+      animation: moveVideoText 4s;
+}
+
+@keyframes moveVideoText {  /* on page load, this lowers text down from top of page */
+    from {top: -100vw;}
+    to {top: 0vw}
+}
+
+h2 {  /* this will affect your title*/
     text-transform: uppercase; 
-    font-family: 'Trebuchet MS', Optima;
+    font-family: Perpetua, Rockwell Extra Bold;
+    font-size: 8vw;
     text-align: center; 
     margin-top: 3%;
+    margin-bottom: 50px;
+    padding-bottom: -100px; 
+    color: g;
+}
+
+h1 {  /* this will affect all h1's */
+    text-transform: uppercase; 
+    font-family: Perpetua, Rockwell Extra Bold;
+    font-size: 4vw;
+    text-align: center; 
+    margin-top: 3%;
+    margin-bottom: -15px;
+    /* padding-bottom: -100px; */
     color: g;
 }
 
@@ -34,8 +83,19 @@ h1:hover {
     font-weight: bold; /* removes bold from text when hovered */
     /* ((removed filter, transform and transition on update 2 ))*/
     /* filter: grayscale(5%); */ /* creates a gray filter over top */
-    transform: scale(1.1);  /* makes text increase in size */
+    /*transform: scale(1.1);  /* makes text increase in size */
     transition: transform 1s;  /* takes 1 second to be fully covered in gray */
+}
+
+sub { 
+    font-family: Perpetua, Rockwell Extra Bold;
+    font-size: 3vw;
+    text-align: right; 
+    /*margin-top: ; */
+    margin-left: 450px;
+    /*margin-bottom: 200px; */
+    padding-top: 200px;
+    color: white;
 }
 
 /*
@@ -64,6 +124,7 @@ p {
     padding-right: 1vw; /* was 20px */
     color: white;
 }
+
 /*
         p:hover {
             color: white;
@@ -71,6 +132,7 @@ p {
             transform: scale(1.005); /* slight increase in size */
 /*        }
 */
+
 .center { /* effects all .center elements */ /* may need to alter html to effect additional "center" objects added on update 2 */
     font-family: Perpetua, Rockwell Extra Bold;
     text-align: center;
@@ -93,6 +155,7 @@ p {
 
 a { /* links */
     color: blue; /* ensures all links are blue */
+    cursor: pointer;
 }
 
 q { /* effects the quote at top of page */
@@ -101,7 +164,7 @@ q { /* effects the quote at top of page */
 }
 
 img { /* all the image elements */
-    filter: grayscale(75%);  /* Removes 75% of original picture color */
+    /*filter: grayscale(75%);  /* Removes 75% of original picture color */
     border-radius: 8px;
     max-width: 100%; /* forces image to stay within the width of their container */
     height: 100%; /* was 340px */
@@ -111,11 +174,13 @@ img { /* all the image elements */
     /* margin-right: auto; */ /* both margin left and margin right replaced on update 2 */
 }
 
-img:hover {
-    filter: grayscale(5%); /* brings back most of img color when hovered */
-    transition: transform 1s;
+/*
+    img:hover {
+        filter: grayscale(5%); /* brings back most of img color when hovered */
+/*        transition: transform 1s;
 
-}
+    }
+*/
 
 @media screen and (max-width: 576px) {  /* effects images on devices with screens 576px or smaller */
     img {
@@ -128,10 +193,12 @@ footer {
     padding: 2%;
     background-color:""; /* removed background color to show video behind text */ 
 }
-
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Navigation Bar
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .navbar {
     overflow: hidden; /* keeps everything in the container */
-    background-color: black;
+    background-color: rgb(31, 34, 31);
     position: fixed; /* keeps nav bar always at top of screen */
     top: 0; /* forces nav bar to be at absolute top of browser */
     width: 100%; /* makes nav bar span entire top of screen */
@@ -149,15 +216,44 @@ footer {
 .navbar a {  /* effects the links */
     float: left;
     display: block; /* keeps text on the same line instead of moving to new line */
-    color: rgb(70, 182, 70);
+    color: white;
     padding: .75vw 1vw; /* around text (was: 14px 16px) changed to a format that will change with screen size*/
     text-decoration: none; /* removes underlines on text in navbar */
-    font-family:cursive;
+    font-family:Perpetua, Rockwell Extra Bold;
     font-size: 20px; /* was 20px -- changed to a format that will change with screen size*/
       position: relative; 
     -webkit-animation: moveNavText 5.75s; /* animation for safari */
     animation: moveNavText 5.75s; /* makes animation last for 5.75 seconds */
     letter-spacing: .2vw;
+}
+
+@keyframes moveNavText {
+    from {top: -100vw;}  /* sets navbar 100% above viewport */
+    to {top: 0vw;}  /* lowers navbar text on to navbar */
+}
+
+@media screen and (max-width: 576px) {  /* displays navbar equally distributed on 576px screens */
+    .navbar a{ 
+        width: 25%; /* makes links take up 1/4 of the navbar */
+        font-size: 12px;
+    }
+}
+
+.navbar a:hover {
+    background-color: black; 
+    color: blue; /* text changes to this color */
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    border-style: solid;
+    border-color: silver;
+}
+
+    
+
+.navbar a.active {
+    background-color: rgb(49, 47, 49); /* targets just the home box on the navbar */
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -174,8 +270,12 @@ footer {
     right: 1.75vw;
     width: 25vw;
     background-color: white;
-    color: black;
+    color: blue;
+    font-weight: bold;
+    text-transform: uppercase; 
+    font-family: Perpetua, Rockwell Extra Bold;
     border: solid;
+    border-color: black;
     cursor: pointer;
     position: fixed;
     -webkit-animation: movePopup 5s;
@@ -252,67 +352,13 @@ button:hover, .form-container .btn:hover { /* hover effect for buttons */
 
 
 
-@keyframes moveNavText {
-    from {top: -100vw;}  /* sets navbar 100% above viewport */
-    to {top: 0vw;}  /* lowers navbar text on to navbar */
-}
-
-@media screen and (max-width: 576px) {  /* displays navbar equally distributed on 576px screens */
-    .navbar a{ 
-        width: 25%; /* makes links take up 1/4 of the navbar */
-        font-size: 12px;
-    }
-}
-
-.navbar a:hover {
-    background-color: rgb(5, 53, 11); 
-    color: white; /* text changes to this color */
-    font-weight: bold;
-    cursor: pointer;
-    -webkit-transition-duration: 1s;
-    transition-duration: 1s;
-}
-
-.navbar a.active {
-    background-color: rgb(49, 47, 49); /* targets just the home box on the navbar */
-}
-
-#floating_web {  /* effecting the video  */
-    position: fixed;
-    right: 0; /* forces video all the way to edge of screen */
-    left: -75%;
-    top: -150%;
-    bottom: 50%; 
-    min-width: 100%; /* forces video to display across full with of screen */
-    z-index: -1; /* pushes video to the back of page, all other elements will lay on top of video */
-}
 
 
-@media screen and (max-width: 576px) { /* makes video not display on screens 576px or less */
-    #floating_web {
-        display: none;
-    }
-}
 
-.video_text {
-    background: rgba(0, 0, 0, 0.5);  /* makes semi transparent surface for text to sit on */
-    color: white; /* text color */
-    width: 100%; /* ((WAS 100%))text fills the width of the container */
-    padding-top: 1vh;  /* adds padding around text so background goes just beyond text */
-    padding-bottom: 40vh;
-    margin-top: 0; /* WAS 23% */
-      position: relative; /* makes text relative to its normal position allowing for animation */
-    /*margin-bottom: 23%;/* was 23% */
-    -webkit-animation: moveNav 4s;
-      animation: moveVideoText 4s;
-}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                    Slide Show
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-@keyframes moveVideoText {  /* on page load, this lowers text down from top of page */
-    from {top: -100vw;}
-    to {top: 0vw}
-}
-
-/*-------------------------Slide Show------------------------*/
 #Slideshow {
     margin-top: 0;
 }
@@ -358,7 +404,7 @@ button:hover, .form-container .btn:hover { /* hover effect for buttons */
     width: auto;
     padding: 2vw;
     margin-top: -0vw;
-    color: darkgray;
+    color: blue;
     font-weight: bold;
     font-size: 1.5vw;
     border-radius: 0 3px 3px 0;
@@ -419,18 +465,21 @@ button:hover, .form-container .btn:hover { /* hover effect for buttons */
     background-color: black;
 }
 
+/*
 .fade {
     -webkit-animation-name: fade;
     -webkit-animation-duration: 1.5s;
     animation-name: fade;
     -o-animation-duration: 1.5s;
 }
+*/
 
 
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Column styling below
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-
-/* ~~~~~~~~~ column styling below ~~~~~~~~~~ */
 
 * {  /* asterisk is a universal selctor effecting all elements on page */
     box-sizing: border-box; /* makes a box with a border which will hold the text */
@@ -457,7 +506,7 @@ button:hover, .form-container .btn:hover { /* hover effect for buttons */
     padding: 1.6%;  /* was 10px */
     /* padding-top: 1.9%; */  /* Removed on second version update */
     height: 448px; /* may need to adjust to fit content */
-    background-color: rgb(7, 24, 13);
+    background-color: rgba(255,255,255, 0.35);
 }
 
 .column_tall {
